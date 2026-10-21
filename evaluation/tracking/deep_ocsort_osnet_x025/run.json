@@ -1,0 +1,72 @@
+{
+  "status": "completed",
+  "algorithm": "Deep OC-SORT + OSNet-x0.25 (adapted)",
+  "smoke_test": false,
+  "original_paper_configuration": false,
+  "detector_sha256": "e551a987058bb52cde8e3a3e1422133571d481a972945816a9c904b4f465b451",
+  "reid_sha256": "6f57607fed9f502b9efed546108132ee715df5a5b6e6932c6269bacb47f59f99",
+  "settings": {
+    "det_conf": 0.1,
+    "det_imgsz": 640,
+    "det_iou": 0.7,
+    "track_thresh": 0.3,
+    "reid": "osnet_x0_25",
+    "reid_crop_hw": [
+      256,
+      128
+    ],
+    "reid_normalization": "RGB ImageNet",
+    "strict_loading": true,
+    "grid_off": true,
+    "new_kf_off": true,
+    "embedding_off": false,
+    "aw_off": false,
+    "cmc": "sparse optical flow",
+    "postprocessing": false
+  },
+  "arguments": {
+    "sequences": [
+      "191",
+      "192",
+      "193"
+    ],
+    "data_root": "D:\\Datasets\\dataset_B\\PIG_MOT_TEST_DATA",
+    "detector": "D:\\GitHub\\detection-tracking-benchmark\\experiments\\detection\\yolov8n\\weights\\best.pt",
+    "reid_weights": "D:\\GitHub\\detection-tracking-benchmark\\third_party\\StrongSORT\\osnet_x0_25_msmt17.pt",
+    "output": "D:\\GitHub\\detection-tracking-benchmark\\evaluation\\tracking\\deep_ocsort_osnet_x025",
+    "max_frames": 0,
+    "device": "cuda:0"
+  },
+  "source_hashes": {
+    "scripts\\run_deep_ocsort.py": "b805ab5465832c3e2bea31ae648a478f32841bb9a9daa310fd57ff454436fe93",
+    "src\\deep_ocsort_adapter.py": "c435262f8afa863e6a91f03b1583cc766e50d6cccd7d1915525af94e8f33be5f",
+    "src\\vendor\\deep_ocsort\\association.py": "f3fe722f4dab0268f509d59ef18ec8207ca6ad101e9d78b94e4bd3edbe8dd932",
+    "src\\vendor\\deep_ocsort\\cmc.py": "368987ccba5aa479203bb6dfdc9adbbfa1df62602e0cb600432ad3a37d859aa0",
+    "src\\vendor\\deep_ocsort\\kalmanfilter.py": "76d5998a4c5cae45a9261336c055b5cd801082e3651036535d4378c33bdea2f1",
+    "src\\vendor\\deep_ocsort\\ocsort.py": "fa69bccc8a7fdfc3afa03eb8f266720ad45d601884aabd3db87b5d1a2042c417",
+    "src\\vendor\\deep_ocsort\\osnet.py": "3465716fd564a8d25c52d16344160be9cd53cf793daaf8dee8d8917b95d54d01"
+  },
+  "sequences": {
+    "191": {
+      "frames": 1737,
+      "rows": 17362,
+      "reid_calls": 1737,
+      "elapsed_seconds": 387.052649,
+      "output_sha256": "253f190efa4ce44725c0754ad23741fbef336e683bf9389687ace2b5219eb3b1"
+    },
+    "192": {
+      "frames": 1883,
+      "rows": 18537,
+      "reid_calls": 1883,
+      "elapsed_seconds": 386.5378983,
+      "output_sha256": "1468857959297d4d58ade8a8d63c89c04b5949d9a270cb5f1ed25df95187e22f"
+    },
+    "193": {
+      "frames": 1904,
+      "rows": 13361,
+      "reid_calls": 1904,
+      "elapsed_seconds": 375.8532687999999,
+      "output_sha256": "48ff2269bcaec8dc0dd08f4b3f8b571353b5869efef6cb914cc0ed3a4ae01ee0"
+    }
+  }
+}

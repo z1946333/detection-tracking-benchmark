@@ -1,0 +1,37 @@
+{
+  "source_url": "https://github.com/GerardMaggiolino/Deep-OC-SORT",
+  "upstream_commit": null,
+  "note": "Local source archive; upstream commit unverified",
+  "files": [
+    {
+      "file": "association.py",
+      "source": "third_party\\Deep-OC-SORT\\trackers\\integrated_ocsort_embedding\\association.py",
+      "original_sha256": "f3fe722f4dab0268f509d59ef18ec8207ca6ad101e9d78b94e4bd3edbe8dd932",
+      "adapted_sha256": "f3fe722f4dab0268f509d59ef18ec8207ca6ad101e9d78b94e4bd3edbe8dd932"
+    },
+    {
+      "file": "cmc.py",
+      "source": "third_party\\Deep-OC-SORT\\trackers\\integrated_ocsort_embedding\\cmc.py",
+      "original_sha256": "368987ccba5aa479203bb6dfdc9adbbfa1df62602e0cb600432ad3a37d859aa0",
+      "adapted_sha256": "368987ccba5aa479203bb6dfdc9adbbfa1df62602e0cb600432ad3a37d859aa0"
+    },
+    {
+      "file": "kalmanfilter.py",
+      "source": "third_party\\Deep-OC-SORT\\trackers\\integrated_ocsort_embedding\\kalmanfilter.py",
+      "original_sha256": "76d5998a4c5cae45a9261336c055b5cd801082e3651036535d4378c33bdea2f1",
+      "adapted_sha256": "76d5998a4c5cae45a9261336c055b5cd801082e3651036535d4378c33bdea2f1"
+    },
+    {
+      "file": "ocsort.py",
+      "source": "third_party\\Deep-OC-SORT\\trackers\\integrated_ocsort_embedding\\ocsort.py",
+      "original_sha256": "2f4d4ccf8ce7f703367607bcb45d7a6b92ea496500881bf3599fe0a65563388c",
+      "adapted_sha256": "fa69bccc8a7fdfc3afa03eb8f266720ad45d601884aabd3db87b5d1a2042c417"
+    },
+    {
+      "file": "osnet.py",
+      "source": "third_party\\Deep-OC-SORT\\external\\deep-person-reid\\torchreid\\models\\osnet.py",
+      "original_sha256": "3465716fd564a8d25c52d16344160be9cd53cf793daaf8dee8d8917b95d54d01",
+      "adapted_sha256": "3465716fd564a8d25c52d16344160be9cd53cf793daaf8dee8d8917b95d54d01"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "algorithm": "ByteTrack",
+  "implementation": "Ultralytics ByteTrack tracker config",
+  "tracker_config": "bytetrack.yaml",
+  "detector": "D:\\GitHub\\detection-tracking-benchmark\\experiments\\detection\\yolov8n\\weights\\best.pt",
+  "sequences": [
+    "191",
+    "192",
+    "193"
+  ],
+  "max_frames": null,
+  "confidence": 0.3,
+  "trackeval_preprocessing": false,
+  "sequence_stats": {
+    "191": {
+      "frames": 1737,
+      "frames_with_tracks": 1737,
+      "rows": 17486,
+      "image_width": 1920,
+      "image_height": 1080
+    },
+    "192": {
+      "frames": 1883,
+      "frames_with_tracks": 1883,
+      "rows": 18719,
+      "image_width": 1920,
+      "image_height": 1080
+    },
+    "193": {
+      "frames": 1904,
+      "frames_with_tracks": 1904,
+      "rows": 13409,
+      "image_width": 1920,
+      "image_height": 1080
+    }
+  }
+}

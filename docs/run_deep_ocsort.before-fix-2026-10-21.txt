@@ -1,0 +1,90 @@
+import numpy as np
+from pathlib import Path
+import cv2
+import sys
+import os
+from ultralytics import YOLO
+
+# 1. 把 Deep-OC-SORT 的根目录和 trackers 目录都加进去
+deep_ocsort_dir = r"D:\GitHub\detection-tracking-benchmark\third_party\Deep-OC-SORT"
+sys.path.append(deep_ocsort_dir)
+sys.path.append(os.path.join(deep_ocsort_dir, "trackers"))
+
+# 2. 使用包导入方式，解决相对导入报错
+try:
+    # 把 trackers 当作一个包来引入
+    from trackers.deepsort_tracker.deepsort import DeepSort
+    print("✅ 成功导入 DeepSort (使用包路径)")
+except ImportError:
+    try:
+        # 如果上面不行，试试直接把 deepsort_tracker 当作包
+        from deepsort_tracker.deepsort import DeepSort
+        print("✅ 成功导入 DeepSort (使用子目录路径)")
+    except Exception as e:
+        print(f"❌ 导入失败，报错信息: {e}")
+        sys.exit(1)
+
+def main():
+    print("正在加载 YOLOv8 检测器...")
+    model = YOLO(r"D:\GitHub\detection-tracking-benchmark\experiments\detection\yolov8n\weights\best.pt")
+    
+    out_dir = Path(r"D:\GitHub\detection-tracking-benchmark\third_party\TrackEval\data\trackers\mot_challenge\PIG-train\my_deep_ocsort\data")
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    # 权重路径
+    reid_weights = r"D:\GitHub\detection-tracking-benchmark\third_party\StrongSORT\osnet_x0_25_msmt17.pt"
+    
+    for seq in ["191", "192", "193"]:
+        print(f"========== 正在用 Deep OC-SORT 处理序列 {seq} ==========")
+        img_dir = Path(rf"D:\Datasets\dataset_B\PIG_MOT_TEST_DATA\{seq}\img1")
+        img_paths = sorted(list(img_dir.glob("*.jpg")))
+        
+        # 初始化
+        tracker = DeepSort(
+            model_path=reid_weights,
+            max_dist=0.2,
+            min_confidence=0.3,
+            nms_max_overlap=1.0,
+            max_iou_distance=0.7,
+            max_age=30,
+            n_init=3,
+            nn_budget=100,
+            use_cuda=True
+        )
+        
+        mot_lines = []
+
+        for frame_id, img_path in enumerate(img_paths, start=1):
+            img = cv2.imread(str(img_path))
+            
+            results = model(img, verbose=False, conf=0.3)[0]
+            dets = results.boxes.data.cpu().numpy()
+            
+            if len(dets) > 0:
+                bboxes = dets[:, :4]
+                confidences = dets[:, 4]
+                classes = dets[:, 5]
+            else:
+                bboxes = np.empty((0, 4))
+                confidences = np.empty(0)
+                classes = np.empty(0)
+
+            online_targets = tracker.update(bboxes, confidences, classes, img)
+            
+            for t in online_targets:
+                x1, y1, x2, y2 = t[:4]
+                track_id = int(t[4])
+                
+                w_pix = x2 - x1
+                h_pix = y2 - y1
+                mot_lines.append(f"{frame_id},{track_id},{x1:.2f},{y1:.2f},{w_pix:.2f},{h_pix:.2f},1.0,-1,-1,-1")
+                
+            if frame_id % 200 == 0:
+                print(f"  已处理 {frame_id} 帧...")
+
+        with open(out_dir / f"{seq}.txt", "w") as f:
+            f.write("\n".join(mot_lines))
+        print(f"✅ 序列 {seq} Deep OC-SORT 结果已写入 {seq}.txt")
+
+if __name__ == "__main__":
+    main()

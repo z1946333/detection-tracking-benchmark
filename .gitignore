@@ -1,0 +1,21 @@
+# 忽略原始大数据
+data/raw/
+data/processed/
+D:/Datasets/
+
+# 忽略第三方源码
+third_party/
+
+# 忽略虚拟环境和缓存
+.venv/
+__pycache__/
+cache/
+*.pyc
+runs/
+
+# 忽略大文件（权重、视频）
+*.zip
+*.mp4
+*.pt
+
+# 不要忽略 experiments/ 和 evaluation/，导师需要看结果！
