@@ -12,6 +12,11 @@ __pycache__/
 cache/
 *.pyc
 runs/
+.vscode/
+checkpoints/
+YOLOX_outputs/
+*.pth
+fix_hybrid.py
 
 # 忽略大文件（权重、视频）
 *.zip
@@ -19,3 +24,8 @@ runs/
 *.pt
 
 # 不要忽略 experiments/ 和 evaluation/，导师需要看结果！
+
+# 忽略跟踪冒烟测试和重复归档，正式结果目录仍然保留
+evaluation/tracking/*smoke*/
+evaluation/tracking/final_results/
+evaluation/tracking/hybridsort_full_20261021/
