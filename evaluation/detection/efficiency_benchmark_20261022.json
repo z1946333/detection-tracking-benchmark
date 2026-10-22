@@ -1,0 +1,90 @@
+{
+  "protocol": {
+    "test_images": 30,
+    "warmup_calls": 5,
+    "timed_calls": 30,
+    "batch": 1,
+    "timing_boundary": "model call only, synchronized CUDA, no disk I/O",
+    "device": "cuda:0"
+  },
+  "results": [
+    {
+      "algorithm": "Faster R-CNN",
+      "parameters_M": 41.299,
+      "latency_mean_ms": 186.62,
+      "latency_median_ms": 186.024,
+      "peak_gpu_memory_MB": 960.039,
+      "fps_from_mean": 5.358,
+      "input_setting": "native torchvision input",
+      "device": "cuda:0",
+      "images_used": 30,
+      "warmup_calls": 5,
+      "timed_calls": 30
+    },
+    {
+      "algorithm": "RetinaNet",
+      "parameters_M": 32.169,
+      "latency_mean_ms": 173.845,
+      "latency_median_ms": 174.234,
+      "peak_gpu_memory_MB": 732.413,
+      "fps_from_mean": 5.752,
+      "input_setting": "native torchvision input",
+      "device": "cuda:0",
+      "images_used": 30,
+      "warmup_calls": 5,
+      "timed_calls": 30
+    },
+    {
+      "algorithm": "SSD300",
+      "parameters_M": 23.746,
+      "latency_mean_ms": 27.148,
+      "latency_median_ms": 27.097,
+      "peak_gpu_memory_MB": 482.836,
+      "fps_from_mean": 36.835,
+      "input_setting": "native torchvision input",
+      "device": "cuda:0",
+      "images_used": 30,
+      "warmup_calls": 5,
+      "timed_calls": 30
+    },
+    {
+      "algorithm": "YOLOv5n",
+      "parameters_M": 1.761,
+      "latency_mean_ms": 12.013,
+      "latency_median_ms": 10.635,
+      "peak_gpu_memory_MB": 24.622,
+      "fps_from_mean": 83.241,
+      "input_setting": "640 px",
+      "device": "cuda:0",
+      "images_used": 30,
+      "warmup_calls": 5,
+      "timed_calls": 30
+    },
+    {
+      "algorithm": "YOLOX",
+      "parameters_M": 8.938,
+      "latency_mean_ms": 20.873,
+      "latency_median_ms": 20.96,
+      "peak_gpu_memory_MB": 91.682,
+      "fps_from_mean": 47.909,
+      "input_setting": "640 px",
+      "device": "cuda:0",
+      "images_used": 30,
+      "warmup_calls": 5,
+      "timed_calls": 30
+    },
+    {
+      "algorithm": "YOLOv8n",
+      "parameters_M": 3.011,
+      "latency_mean_ms": 11.173,
+      "latency_median_ms": 10.692,
+      "peak_gpu_memory_MB": 43.518,
+      "fps_from_mean": 89.505,
+      "input_setting": "640 px",
+      "device": "cuda:0",
+      "images_used": 30,
+      "warmup_calls": 5,
+      "timed_calls": 30
+    }
+  ]
+}
