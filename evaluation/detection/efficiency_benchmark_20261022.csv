@@ -1,7 +1,7 @@
 algorithm,parameters_M,latency_mean_ms,latency_median_ms,peak_gpu_memory_MB,fps_from_mean,input_setting,device,images_used,warmup_calls,timed_calls
-Faster R-CNN,41.299,186.62,186.024,960.039,5.358,native torchvision input,cuda:0,30,5,30
-RetinaNet,32.169,173.845,174.234,732.413,5.752,native torchvision input,cuda:0,30,5,30
-SSD300,23.746,27.148,27.097,482.836,36.835,native torchvision input,cuda:0,30,5,30
-YOLOv5n,1.761,12.013,10.635,24.622,83.241,640 px,cuda:0,30,5,30
-YOLOX,8.938,20.873,20.96,91.682,47.909,640 px,cuda:0,30,5,30
-YOLOv8n,3.011,11.173,10.692,43.518,89.505,640 px,cuda:0,30,5,30
+Faster R-CNN,41.299,185.028,184.723,2257.304,5.405,native torchvision input,cuda:0,153,10,153
+RetinaNet,32.169,174.297,173.587,2029.678,5.737,native torchvision input,cuda:0,153,10,153
+SSD300,23.746,26.696,26.633,1780.102,37.459,native torchvision input,cuda:0,153,10,153
+YOLOv5n,1.761,11.345,10.998,24.622,88.142,640 px,cuda:0,153,10,153
+YOLOX,8.938,21.258,20.954,91.682,47.04,640 px,cuda:0,153,10,153
+YOLOv8n,3.011,10.001,9.813,43.518,99.988,640 px,cuda:0,153,10,153
